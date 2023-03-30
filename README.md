@@ -54,6 +54,7 @@ docker run <image name> <command> // this command overrides the default command
 - List running containers
 ```shell
 docker ps
+docker ps --all
 ```
 
 - List locally available images
