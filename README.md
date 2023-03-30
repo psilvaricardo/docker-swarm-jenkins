@@ -47,7 +47,10 @@ sudo docker rm -f $(sudo docker ps -aq)
 
 - Start a new container from an image
 ```shell
-docker run <image name>
+docker run = docker create + docker start // this should be identical
+docker create <image name for this container> // creating a container has to do with creating the file system snapshot
+docker start <container id to start> // this is when we actually execute whatever process that is supposed to be executed inside the container 
+docker run <image name> <command> // this command overrides the default command
 docker run <image name> <command> // this command overrides the default command
 ```
 
