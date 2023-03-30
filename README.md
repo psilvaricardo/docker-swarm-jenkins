@@ -49,7 +49,8 @@ sudo docker rm -f $(sudo docker ps -aq)
 ```shell
 docker run = docker create + docker start // this should be identical
 docker create <image name for this container> // creating a container has to do with creating the file system snapshot
-docker start <container id to start> // this is when we actually execute whatever process that is supposed to be executed inside the container 
+docker start <container id to start> // this is when we actually execute whatever process that is supposed to be executed inside the container, it will not output anything to the console
+docker start -a <container id to start> // same as the previous one, the -a parameter will make docker to watch for any output from the container and print it out to your terminal
 docker run <image name> <command> // this command overrides the default command
 docker run <image name> <command> // this command overrides the default command
 ```
