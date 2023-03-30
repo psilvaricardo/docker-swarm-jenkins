@@ -57,8 +57,8 @@ docker run <image name> <command> // this command overrides the default command
 
 - List running containers
 ```shell
-docker ps
-docker ps --all
+docker ps // list all the running containers
+docker ps --all // list all the containers regardless of its status
 ```
 
 - List locally available images
@@ -94,6 +94,7 @@ docker stop
 - Remove a stopped container
 ```shell
 docker rm
+docker system prune // it will remove all stopped containers, all dangling images and all dangling build cache.
 ```
 
 - Remove a locally available image
@@ -121,6 +122,10 @@ docker volume
 docker-compose
 ```
 
+- Retrieving / Get log from a Container
+```shell
+docker logs <container id> 
+```
 
 ## Useful Resources & Links
 
