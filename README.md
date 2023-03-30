@@ -84,11 +84,13 @@ docker build
 - Run a command in a running container
 ```shell
 docker exec
+docker exec -it <container id> <command> // execute an additional command in a container attaching to the STDIN
 ```
 
 - Stop a running container
 ```shell
-docker stop
+docker stop <container id> // a hardware signal SIGTERM is send to the primary process inside that container with a 10 seconds grace period
+docker kill <container id> // a hardware signal SIGKILL is send to the primary process inside that container
 ```
 
 - Remove a stopped container
@@ -100,11 +102,6 @@ docker system prune // it will remove all stopped containers, all dangling image
 - Remove a locally available image
 ```shell
 docker rmi
-```
-
-- Display the logs of a running container
-```shell
-docker logs
 ```
 
 - Manage Docker networks
@@ -122,7 +119,7 @@ docker volume
 docker-compose
 ```
 
-- Retrieving / Get log from a Container
+- Retrieving / Get logs from a Container
 ```shell
 docker logs <container id> 
 ```
