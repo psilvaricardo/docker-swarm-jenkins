@@ -48,6 +48,7 @@ sudo docker rm -f $(sudo docker ps -aq)
 - Start a new container from an image
 ```shell
 docker run <image name>
+docker run <image name> <command> // this command overrides the default command
 ```
 
 - List running containers
