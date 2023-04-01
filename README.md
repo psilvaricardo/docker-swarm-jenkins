@@ -98,7 +98,7 @@ docker kill <container id> // a hardware signal SIGKILL is send to the primary p
 - Remove a stopped container
 ```shell
 docker rm
-docker system prune // it will remove all stopped containers, all dangling images and all dangling build cache.
+docker system prune -a --volumes // it will remove all stopped containers, all dangling images and all dangling build cache.
 ```
 
 - Remove a locally available image
@@ -124,6 +124,11 @@ docker-compose
 - Retrieving / Get logs from a Container
 ```shell
 docker logs <container id> 
+```
+
+- Adding TAGs to the docker images
+```shell
+docker build -t <your-DockerHub-Id>/<ImageName>:<version> <directory of files or folders used for the build>
 ```
 
 ## Docker Files
