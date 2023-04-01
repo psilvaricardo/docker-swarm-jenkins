@@ -134,9 +134,7 @@ docker build -t <your-DockerHub-Id>/<ImageName>:<version> <directory of files or
 ## Docker Files
 
 - What's a Docker file? 
-A Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Dockerfile specifies the components and configuration required for the image, including the base image, the software packages to be installed, and any customizations that need to be made.
-
-Using a Dockerfile, developers can define a repeatable and consistent process for building Docker images that can be easily shared and deployed across different environments. Docker images built from Dockerfiles are lightweight and portable, making them ideal for use in container-based deployments.
+A Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Dockerfile specifies the components and configuration required for the image, including the base image, the software packages to be installed, and any customizations that need to be made. Using a Dockerfile, developers can define a repeatable and consistent process for building Docker images that can be easily shared and deployed across different environments. Docker images built from Dockerfiles are lightweight and portable, making them ideal for use in container-based deployments.
 
 
 ## Useful Resources & Links
