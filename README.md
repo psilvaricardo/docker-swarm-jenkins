@@ -36,6 +36,8 @@ sudo systemctl enable docker
 ```
 By following these steps, you should be able to install and configure Docker on Arch Linux and ensure that your user has the necessary permissions to run it without issues.
 
+- Install docker buildx: https://docs.docker.com/engine/reference/commandline/buildx/
+- https://docs.docker.com/desktop/install/linux-install/
 
 ## Useful Docker Commands
 
@@ -124,8 +126,19 @@ docker-compose
 docker logs <container id> 
 ```
 
+## Docker Files
+
+- What's a Docker file? 
+A Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Dockerfile specifies the components and configuration required for the image, including the base image, the software packages to be installed, and any customizations that need to be made.
+
+Using a Dockerfile, developers can define a repeatable and consistent process for building Docker images that can be easily shared and deployed across different environments. Docker images built from Dockerfiles are lightweight and portable, making them ideal for use in container-based deployments.
+
+
 ## Useful Resources & Links
 
+- Docker Hub: https://hub.docker.com/
+- https://docs.docker.com/develop/develop-images/build_enhancements/
+- https://docs.docker.com/engine/reference/commandline/build/#specifying-external-cache-sources
+- https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
 - Install Docker Desktop on Linux: https://docs.docker.com/desktop/install/linux-install/
 - Install on Arch-based distributions: https://docs.docker.com/desktop/install/archlinux/
-
