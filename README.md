@@ -55,6 +55,9 @@ docker start <container id to start> // this is when we actually execute whateve
 docker start -a <container id to start> // same as the previous one, the -a parameter will make docker to watch for any output from the container and print it out to your terminal
 docker run <image name> <command> // this command overrides the default command
 docker run <image name> <command> // this command overrides the default command
+
+// Container Port Mapping
+docker run -p <port number of incoming request on localhost>:<port number listening inside the container> <imageId>
 ```
 
 - List running containers
@@ -145,3 +148,7 @@ A Dockerfile is a text file that contains a set of instructions that are used to
 - https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
 - Install Docker Desktop on Linux: https://docs.docker.com/desktop/install/linux-install/
 - Install on Arch-based distributions: https://docs.docker.com/desktop/install/archlinux/
+
+## Some known issues
+
+- As of April 01, 2023; after installing docker-desktop, docker command as user does not connect any more to the daemon. For the fix, follow this link: https://github.com/docker/desktop-linux/issues/20#issuecomment-1221529171
