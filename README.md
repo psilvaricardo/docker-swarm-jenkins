@@ -151,4 +151,4 @@ A Dockerfile is a text file that contains a set of instructions that are used to
 
 ## Some known issues
 
-- As of April 01, 2023; after installing docker-desktop, docker command as user does not connect any more to the daemon. For the fix, follow this link: https://github.com/docker/desktop-linux/issues/20#issuecomment-1221529171
+- As of April 01, 2023; after installing docker-desktop in arch linux, docker command as user does not connect any more to the docker daemon. For the fix, follow this link: https://github.com/docker/desktop-linux/issues/20#issuecomment-1221529171
