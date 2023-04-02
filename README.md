@@ -36,6 +36,8 @@ sudo systemctl enable docker
 ```
 By following these steps, you should be able to install and configure Docker on Arch Linux and ensure that your user has the necessary permissions to run it without issues.
 
+- Install docker buildx: https://docs.docker.com/engine/reference/commandline/buildx/
+- https://docs.docker.com/desktop/install/linux-install/
 
 ## Useful Docker Commands
 
@@ -53,6 +55,9 @@ docker start <container id to start> // this is when we actually execute whateve
 docker start -a <container id to start> // same as the previous one, the -a parameter will make docker to watch for any output from the container and print it out to your terminal
 docker run <image name> <command> // this command overrides the default command
 docker run <image name> <command> // this command overrides the default command
+
+// Container Port Mapping
+docker run -p <port number of incoming request on localhost>:<port number listening inside the container> <imageId>
 ```
 
 - List running containers
@@ -84,7 +89,7 @@ docker build
 - Run a command in a running container
 ```shell
 docker exec
-docker exec -it <container id> <command> // execute an additional command in a container attaching to the STDINdoo
+docker exec -it <container id> <command> // execute an additional command in a container attaching to the STDIN
 ```
 
 - Stop a running container
@@ -96,7 +101,7 @@ docker kill <container id> // a hardware signal SIGKILL is send to the primary p
 - Remove a stopped container
 ```shell
 docker rm
-docker system prune // it will remove all stopped containers, all dangling images and all dangling build cache.
+docker system prune -a --volumes // it will remove all stopped containers, all dangling images and all dangling build cache.
 ```
 
 - Remove a locally available image
@@ -124,8 +129,26 @@ docker-compose
 docker logs <container id> 
 ```
 
+- Adding TAGs to the docker images
+```shell
+docker build -t <your-DockerHub-Id>/<ImageName>:<version> <directory of files or folders used for the build>
+```
+
+## Docker Files
+
+- What's a Docker file? 
+A Dockerfile is a text file that contains a set of instructions that are used to build a Docker image. The Dockerfile specifies the components and configuration required for the image, including the base image, the software packages to be installed, and any customizations that need to be made. Using a Dockerfile, developers can define a repeatable and consistent process for building Docker images that can be easily shared and deployed across different environments. Docker images built from Dockerfiles are lightweight and portable, making them ideal for use in container-based deployments.
+
+
 ## Useful Resources & Links
 
+- Docker Hub: https://hub.docker.com/
+- https://docs.docker.com/develop/develop-images/build_enhancements/
+- https://docs.docker.com/engine/reference/commandline/build/#specifying-external-cache-sources
+- https://www.docker.com/blog/advanced-dockerfiles-faster-builds-and-smaller-images-using-buildkit-and-multistage-builds/
 - Install Docker Desktop on Linux: https://docs.docker.com/desktop/install/linux-install/
 - Install on Arch-based distributions: https://docs.docker.com/desktop/install/archlinux/
 
+## Some known issues
+
+- As of April 01, 2023; after installing docker-desktop, docker command as user does not connect any more to the daemon. For the fix, follow this link: https://github.com/docker/desktop-linux/issues/20#issuecomment-1221529171
