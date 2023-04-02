@@ -89,7 +89,7 @@ docker build
 - Run a command in a running container
 ```shell
 docker exec
-docker exec -it <container id> <command> // execute an additional command in a container attaching to the STDINdoo
+docker exec -it <container id> <command> // execute an additional command in a container attaching to the STDIN
 ```
 
 - Stop a running container
