@@ -1,0 +1,20 @@
+# Fixing low memory condition https://github.com/jemalloc/jemalloc/issues/1328
+
+# This adds the sysctl command to set vm.overcommit_memory=1 before 
+# starting the Redis server and also mounts the sysctl.conf file into 
+# the container to make the setting persistent.
+
+version: '3'
+
+services:
+  redis-server:
+    image: redis
+    command: redis-server /etc/redis/redis.conf
+    volumes:
+      - ./redis.conf:/etc/redis/redis.conf
+      - ./sysctl.conf:/etc/sysctl.conf
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "4001:8081"
