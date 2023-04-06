@@ -134,6 +134,47 @@ docker logs <container id>
 docker build -t <your-DockerHub-Id>/<ImageName>:<version> <directory of files or folders used for the build>
 ```
 
+
+## Useful Docker Compose Commands
+
+Overall, Docker Compose is a powerful tool used to define and run multi-container Docker applications. That can simplify the deployment and management of multi-container Docker applications, particularly in complex environments with multiple dependencies.
+
+Here are some of the main use cases for Docker Compose:
+
+- Multi-container applications: Docker Compose is particularly useful for running multi-container applications, where each container performs a different function. For example, you might have a web application that uses a separate container for the web server, the database, and a Redis cache. Docker Compose allows you to define and manage all of these containers as a single application.
+
+- Dev/Test environments: Docker Compose can be used to define and run multi-container applications in local dev/test environments. By defining the application in a single docker-compose.yml file, developers can quickly and easily spin up a local environment that matches the production environment.
+
+- Orchestrating deployments: Docker Compose can also be used to manage the deployment of multi-container applications to production environments. By defining the application and its dependencies in a single file, it becomes easier to manage and deploy the application across multiple servers or cloud providers.
+
+- To start all the services defined inside of your docker-compose.yml configuration file
+```shell
+docker compose up
+docker compose up --build // to rebuild all the services/docker images
+docker compose up - d // run in the background
+```
+
+- To stop all the services defined inside of your docker-compose.yml configuration file
+```shell
+docker compose down
+```
+
+- Check the status of docker images inside your docker compose file on the present directory:
+```shell
+docker compose ps
+```
+
+- We can configure automatic container restarts in case our application crash or something happens using restart policies. The Docker Compose restart policy controls what happens when a container exits, whether it is due to an error, a crash, or a deliberate stop. There are several restart policies available in Docker Compose, each with its own behavior:
+
+** no: This is the default policy, and it means that the container will not be restarted if it exits. (This needs to go within single or double quotes: 'no').
+
+** always: This policy will always restart the container, regardless of the exit status. This is useful for containers that need to run continuously, such as web servers or databases.
+
+** on-failure: This policy will restart the container if it exits with a non-zero exit code. You can also specify how many times to attempt a restart using the --restart-max-attempts flag. The default is to try an unlimited number of times.
+
+** unless-stopped: This policy will always restart the container, except when the container is explicitly stopped using the docker-compose stop command or the docker stop command.
+
+
 ## Docker Files
 
 - What's a Docker file? 
