@@ -4,8 +4,8 @@ services:
   - docker
 
 before_install:
-  - cp frontend/package.json frontend/
-  - docker build -t ricardo072/docker-swarm-jenkins -f frontend/Dockerfile.dev .
+  - cp frontend/
+  - docker build -t ricardo072/docker-swarm-jenkins -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true ricardo072/docker-swarm-jenkins npm run test
