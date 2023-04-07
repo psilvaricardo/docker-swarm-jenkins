@@ -4,6 +4,7 @@ services:
   - docker
 
 before_install:
+  - cp package.json frontend/
   - docker build -t ricardo072/docker-swarm-jenkins -f frontend/Dockerfile.dev .
 
 script:
