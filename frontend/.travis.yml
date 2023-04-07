@@ -1,13 +1,10 @@
-version: '3'
+sudo: required
 
-# telling travis we need a copy of docker
 services:
   - docker
 
-# build my image using the Dockerfile.dev file
-before_script:
-  - docker build -t ricardo072/docker-swarm-jenkins f Dockerfile.dev .
+before_install:
+  - docker build -t ricardo072/docker-swarm-jenkins -f Dockerfile.dev .
 
-# execute the test suite
 script:
-  - docker run ricardo072/docker-swarm-jenkins npm test
+  - docker run -e CI=true ricardo072/docker-swarm-jenkins npm run test
