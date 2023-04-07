@@ -56,8 +56,10 @@ docker start -a <container id to start> // same as the previous one, the -a para
 docker run <image name> <command> // this command overrides the default command
 docker run <image name> <command> // this command overrides the default command
 
-// Container Port Mapping
-docker run -p <port number of incoming request on localhost>:<port number listening inside the container> <imageId>
+docker run -p <port number of incoming request on localhost>:<port number listening inside the container> <imageId> // Container Port Mapping
+
+* Docker Volumes
+docker run -v /app/node_modules -v $(pwd):/app <image_id>
 ```
 
 - List running containers
@@ -83,7 +85,8 @@ docker push
 
 - Build a new image from a Dockerfile
 ```shell
-docker build
+docker build // this will look for the default 'Dockerfile' file
+docker build -f <filename> // this way you can specify a file name different than the default 'Dockerfile' file
 ```
 
 - Run a command in a running container
