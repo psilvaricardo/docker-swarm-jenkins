@@ -1,0 +1,23 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - cd frontend/
+  - docker build -t ricardo072/docker-swarm-jenkins -f Dockerfile .
+
+script:
+  - docker run -e CI=true ricardo072/docker-swarm-jenkins npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react-aws-sample01"
+  env: "Dockerreactawssample01-env"
+  bucket_name: "elasticbeanstalk-us-east-2-947341264374"
+  bucket_path: "docker-react-aws-sample01"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
