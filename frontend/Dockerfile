@@ -2,10 +2,10 @@ FROM node:16-alpine as builder
 
 WORKDIR '/usr/src/frontend'
 
-COPY ./package.json ./
+COPY package.json ./
 RUN npm install
 
-COPY ./ ./
+COPY . .
 
 # changing the ownership of the node_modules directory to the same 
 # user running the npm command to avoid permission issues
