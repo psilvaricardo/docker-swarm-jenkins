@@ -5,7 +5,7 @@ services:
 
 before_install:
   - cd frontend/
-  - docker build -t ricardo072/docker-swarm-jenkins -f Dockerfile .
+  - docker build -t ricardo072/docker-swarm-jenkins .
 
 script:
   - docker run -e CI=true ricardo072/docker-swarm-jenkins npm run test
