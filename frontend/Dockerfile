@@ -21,4 +21,4 @@ FROM nginx
 WORKDIR '/usr/src/frontend'
 RUN ls -ltra
 EXPOSE 80
-COPY --from=webapp /frontend/build /usr/share/nginx/html
+COPY --from=webapp /build /usr/share/nginx/html
