@@ -1,6 +1,7 @@
-FROM node:16-alpine as webapp
+FROM base AS builder
+WORKDIR /usr/src/frontend
 
-WORKDIR '/frontend/'
+FROM node:16-alpine as webapp
 
 COPY ./package.json ./
 
@@ -18,7 +19,6 @@ CMD [ "npm", "run", "build" ]
 
 
 FROM nginx
-WORKDIR '/usr/src/frontend'
-RUN ls -ltra
+RUN ls -la
 EXPOSE 80
 COPY --from=webapp /build /usr/share/nginx/html
